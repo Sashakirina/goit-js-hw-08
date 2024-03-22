@@ -91,13 +91,14 @@ function createGallery(arr) {
 function handleClick(event){
 	event.preventDefault();
 	console.dir(event.target)
-	if(event.target === event.curentTarget){
+	console.log(event.currentTarget);
+	if(event.target === event.currentTarget){
 		return;
 	}
 
 const currentImage = event.target.closest(`.gallery-link`);
 const imageSource = currentImage.href;
-const img = images.find(img => img.original = imageSource);
+const img = images.find(img => img.original === imageSource);
 
 const instance = basicLightbox.create(`
 	<div class = "modal">
